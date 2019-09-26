@@ -1,4 +1,8 @@
-const setupInput = function() {
+
+let connection;
+
+const setupInput = function(conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
@@ -8,6 +12,26 @@ const setupInput = function() {
     if (key === '\u0003') {
       console.log('Disconnected from game');
       process.exit();
+    }
+    //up
+    if (key === 'w') {
+      console.log('^')
+      conn.write("Move: up")
+    }
+    //down
+    if (key === 's') {
+      console.log('V')
+      conn.write("Move: down")
+    }
+    //left
+    if (key === 'a') {
+      console.log('<')
+      conn.write("Move: left")
+    }
+    //right
+    if (key === 'd') {
+      console.log('>')
+      conn.write("Move: right")
     }
   })
   return stdin
