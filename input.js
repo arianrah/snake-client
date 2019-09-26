@@ -33,6 +33,10 @@ const setupInput = function(conn) {
       console.log('>')
       conn.write("Move: right")
     }
+    if (key === 'e') {
+      console.log('Mastahblastah');
+      conn.write('Say: Mastahblastah')
+    }
   })
   return stdin
 };
